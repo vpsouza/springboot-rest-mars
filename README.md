@@ -12,28 +12,42 @@ These instructions will get you a copy of the project up and running on your loc
 
 2 - Maven 
 
-### Running the app
+## Running the app
 
 ```
 mvn spring-boot:run
 ```
 
-Movimento com rotações para direita:
+### Movimento com rotações para direita:
+```
 curl -s --request POST http://localhost:8080/rest/mars/MMRMMRMM
 Saída esperada: (2, 0, S)
-Movimento para esquerda:
+```
+
+
+### Movimento para esquerda:
+```
 Entrada: curl -s --request POST http://localhost:8080/rest/mars/MML
 Saída esperada: (0, 2, W)
-Repetição da requisição com movimento para esquerda:
+```
+
+### Repetição da requisição com movimento para esquerda:
+```
 Entrada: curl -s --request POST http://localhost:8080/rest/mars/MML
 Saída esperada: (0, 2, W)
-Comando inválido:
+```
+
+### Comando inválido:
+```
 curl -s --request POST http://localhost:8080/rest/mars/AAA
 Saída esperada: 400 Bad Request
-Posição inválida:
+```
+
+### Posição inválida:
+```
 curl -s --request POST http://localhost:8080/rest/mars/MMMMMMMMMMMMMMMMMMMMMMMM
 Saída esperada: 400 Bad Request
-
+```
 
 ## Running the tests
 
