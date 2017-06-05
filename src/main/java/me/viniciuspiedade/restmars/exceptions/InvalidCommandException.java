@@ -10,10 +10,6 @@ public class InvalidCommandException extends Exception {
 		return errorMessage;
 	}
 	
-	public InvalidCommandException() {
-		super();
-	}
-	
 	public InvalidCommandException(String errorMessage) {
 		super(errorMessage);
 		this.errorMessage = errorMessage;

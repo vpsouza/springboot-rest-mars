@@ -10,10 +10,6 @@ public class InvalidPositionException extends RuntimeException {
 		return errorMessage;
 	}
 	
-	public InvalidPositionException() {
-		super();
-	}
-	
 	public InvalidPositionException(String errorMessage) {
 		super(errorMessage);
 		this.errorMessage = errorMessage;

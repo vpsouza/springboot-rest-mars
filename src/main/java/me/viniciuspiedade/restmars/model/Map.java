@@ -32,20 +32,8 @@ public class Map {
 			return this.orientation;
 		}
 		
-		@Override
-		public String toString() {
-			return "Position [x=" + x + ", y=" + y + ", orientation=" + orientation + "]";
-		}
 	}
 	
-	public int getX() {
-		return x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
 	public EnumDirection getDirection() {
 		return direction;
 	}
@@ -60,7 +48,7 @@ public class Map {
 		}
 		
 		if ( movement > 4 || movement < 0)
-			throw new InvalidPositionException("Invalid position");
+			throw new InvalidPositionException("Invalid position!");
 	}
 	
 	public void change(EnumDirection direction){
@@ -72,9 +60,4 @@ public class Map {
 		return new Position(this.x, this.y, this.direction.getId());
 	}
 
-	@Override
-	public String toString() {
-		return "Map [isXAxis=" + isXAxis + ", x=" + x + ", y=" + y + ", direction=" + direction.getId() + "]";
-	}
-	
 }

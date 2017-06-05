@@ -23,10 +23,4 @@ public class RestExceptionHandler {
 		logger.error("ProductException", ex);
 		return new ResponseEntity<ErrorResponse>(new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getErrorMessage()), HttpStatus.BAD_REQUEST);
 	}
-	
-	@ExceptionHandler(Exception.class)
-	public ResponseEntity<ErrorResponse> exceptionRestMarsHandler(Exception ex) {
-		logger.error("Exception", ex);
-		return new ResponseEntity<ErrorResponse>(new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
-	}
 }
