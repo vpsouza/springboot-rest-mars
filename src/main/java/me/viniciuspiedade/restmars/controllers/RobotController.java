@@ -23,7 +23,7 @@ public class RobotController {
 	private RobotService robotService;
 
 	@RequestMapping(path = "/rest/mars/{cmd}", method = RequestMethod.POST)
-	public ResponseEntity<String> getAllSumarized(@PathVariable("cmd") String cmd ) throws InvalidCommandException {
+	public ResponseEntity<String> move(@PathVariable("cmd") String cmd ) throws InvalidCommandException {
 		logger.info("getting position of robot for coordinates " + cmd + " ...");
 
 		Map.Position position = robotService.moveRobot(cmd);
