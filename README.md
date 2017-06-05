@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 2 - Maven 
 
-### Running the app
+## Running the app
 
 ```
 mvn spring-boot:run
