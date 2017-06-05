@@ -37,25 +37,25 @@ public class RobotControllerTest {
 	
 	@Test
 	public void verifyRobotMove() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/rest/mars/M").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.post("/rest/mars/M").accept(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$").value("(0,1,N)")).andDo(print());
 	}
 	
 	@Test
 	public void verifyRobotMovingToRightRotation() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/rest/mars/MMRMMRMM").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.post("/rest/mars/MMRMMRMM").accept(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$").value("(2,0,S)")).andDo(print());
 	}
 	
 	@Test
 	public void verifyRobotMovingToLeftRotation() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/rest/mars/MML").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.post("/rest/mars/MML").accept(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$").value("(0,2,W)")).andDo(print());
 	}
 	
 	@Test
 	public void verifyInvalidProductArgument() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/rest/mars/AAA").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.post("/rest/mars/AAA").accept(MediaType.APPLICATION_JSON))
 			.andExpect(jsonPath("$.errorCode").value(400))
 			.andExpect(jsonPath("$.message").value("Invalid command received."))
 			.andDo(print());
@@ -63,7 +63,7 @@ public class RobotControllerTest {
 	
 	@Test
 	public void verifyInvalidPosition() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/rest/mars/MMMMMMMMMMMMMMMM").accept(MediaType.APPLICATION_JSON))
+		mockMvc.perform(MockMvcRequestBuilders.post("/rest/mars/MMMMMMMMMMMMMMMM").accept(MediaType.APPLICATION_JSON))
 		.andExpect(jsonPath("$.errorCode").value(400))
 		.andExpect(jsonPath("$.message").value("Invalid position!"))
 		.andDo(print());

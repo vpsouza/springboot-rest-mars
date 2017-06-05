@@ -22,7 +22,7 @@ public class RobotController {
 	@Autowired
 	private RobotService robotService;
 
-	@RequestMapping(path = "/rest/mars/{cmd}", method = RequestMethod.GET)
+	@RequestMapping(path = "/rest/mars/{cmd}", method = RequestMethod.POST)
 	public ResponseEntity<String> getAllSumarized(@PathVariable("cmd") String cmd ) throws InvalidCommandException {
 		logger.info("getting position of robot for coordinates " + cmd + " ...");
 
